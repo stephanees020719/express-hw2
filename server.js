@@ -3,7 +3,7 @@ const app = express();
 const PORT = 3000;
 const fs = require('fs'); 
 // define the view engine called portal
-app.engine('portal', (filePath, options, callback) => {
+app.engine('blog', (filePath, options, callback) => {
   
     //read the file content
   fs.readFile(filePath, (err, content) => {
@@ -21,7 +21,7 @@ app.engine('portal', (filePath, options, callback) => {
 });
 
 app.set('views', './views');
-app.set('view engine', 'portal');
+app.set('view engine', 'blog');
 
 
 
@@ -30,7 +30,7 @@ app.set('view engine', 'portal');
 app.get('/', (req, res) => {
   res.render('template1', {
     title: 'Technology',
-    message: 'This Startup Is Disrupting The Entire Multi-Billion Dollar Smartwatch Industry “The Health Benefits Are Incredible”!',
+    message: 'Smartwatch',
     content: 'See why this smartwatch is gaining popularity quickly in the US and selling out everywhere. For a long time, the smartwatch industry had just a few big companies that could set any prices they wanted But now one tech startup is turning the $5 billion smartwatch industry on its head'
   
   });
@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 app.get('/medicine-health', (req, res) => {
     res.render('template1', {
       title: 'Medicine/Health',
-      message: 'Prenatal Exposure to Phthalate Chemicals Linked to Developmental Issues in Toddler Boys',
+      message: 'Prenatal exposure',
       content:
         'August 24, 2023 — Chemicals used in hundreds of products known as phthalates have been linked to emotional and behavioral development issues in 24-month-old-boys who were exposed during the first trimester of pregnancy, according to a new study by Hebrew University of Jerusalem (HU) researchers.',
     });
@@ -48,7 +48,7 @@ app.get('/medicine-health', (req, res) => {
   app.get('/beauty-fashion', (req, res) => {
     res.render('template1', {
       title: 'Beauty-fashion',
-      message: 'The State of Fashion Special Edition | The New Face of Beauty',
+      message: 'The State of Fashion',
       content:
         'The special edition of The State of Fashion report by BoF and McKinsey & Company explores the reshaping of the global beauty industry. Download the full report to learn about the key dynamics that will impact all categories in the years ahead, from the rise of wellness to the influence of Gen-Z.',
         
@@ -76,7 +76,7 @@ app.get('/dominican-republic', (req, res) => {
   });
 
 
-  //route 6
+  //route 6  not using the template but i just wanted to try it out and make it fun
   app.get('/vacation', (req, res) => {
     const answers = ['Dubai',
     'Punta Cana',
@@ -93,7 +93,7 @@ app.get('/dominican-republic', (req, res) => {
   res.send(`<h3>What's your vacation Destination?</h3> <br/> <h1>${random}</h1>`);
 });
 
-//route 7
+//route 7  not using the template but i just wanted to try it out and make it fun
 app.get('/dinner', (req, res) => {
     const answers = ['Hamburger',
     'Fried Chicken with fries',
@@ -131,17 +131,25 @@ app.get('/dubai', (req, res) => {
 
 
   //route 10
-  app.get('/puerto-rico', (req, res) => {
+  app.get('/paris', (req, res) => {
     res.render('template2', {
-      title:'Puerto Rico',
+      title:'Paris',
       message: 'Welcome to Paris',
       content: 'The city of love!',
       url: 'https://media.istockphoto.com/id/1145422105/photo/eiffel-tower-aerial-view-paris.jpg?s=612x612&w=is&k=20&c=GaLPYacVcplcRSHWF0oda5nODPA0yiyLHp44b-JOwy4=',
     });
   });
 
+
+
+
 //app listening
   app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
   });
   
+
+
+
+
+
